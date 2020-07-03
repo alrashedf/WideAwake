@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>I'm Online: Mouse Gitter Experiment</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden
+    }
+    svg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -10;
+    }
+    line {
+      stroke-width: 0.9px;
+      stroke: black;
+    }
+    button {
+      padding: 20px;
+      background: lightcoral;
+    }
+  </style>
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/nosleep/0.11.0/NoSleep.min.js"></script>
+</head>
+<body>
+<button id="toggle">Screen will sleep: click to wake</button>
+<svg id="svg_fullscreen" xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="100%" height="100%"
+     viewBox="0 0 500 500"
+     preserveAspectRatio="xMidYMid slice">
+  <!-- All geometry properties are relative to the target bounding box -->
+  <pattern id="p1" x="0" y="0" width="3" height="3"
+           patternUnits="userSpaceOnUse">
+    <circle cx="0" cy="0" r="1"/>
+    <circle cx="0" cy="3" r="1"/>
+    <circle cx="3" cy="0" r="1"/>
+    <circle cx="3" cy="3" r="1"/>
+  </pattern>
+  <pattern id="p2" x="0" y="0" width="2" height="2"
+           patternUnits="userSpaceOnUse">
+    <rect height="5" width="5" fill="#000"/>
+    <circle cx="0" cy="0" r="1" fill="white"/>
+    <circle cx="0" cy="2" r="1"/>
+    <circle cx="2" cy="0" r="1"/>
+    <circle cx="2" cy="2" r="1" fill="white"/>
+  </pattern>
+  <pattern id="p3" width="6" height="6"
+           patternUnits="userSpaceOnUse">
+    <line x1="0" y1="-1" x2="-8" y2="7"/>
+    <line x1="2" y1="-1" x2="-6" y2="7"/>
+    <line x1="4" y1="-1" x2="-4" y2="7"/>
+    <line x1="6" y1="-1" x2="-2" y2="7"/>
+    <line x1="8" y1="-1" x2="0" y2="7"/>
+    <line x1="10" y1="-1" x2="2" y2="7"/>
+    <line x1="12" y1="-1" x2="4" y2="7"/>
+  </pattern>
+  <rect id="rect" x="0" y="0" width="100" height="100" fill="url(#p3)"></rect>
+</svg>
+</body>
+<script>
+
+  var
+    scale    = 2,
+    radius   = 4,
+    speed    = 0.3,
+    svg_size = window.innerWidth / scale,
+    svg      = document.getElementById( 'svg_fullscreen' ),
+    rect     = document.getElementById( 'rect' ),
+    pattern  = document.getElementById( 'p3' ),
+
+    noSleep  = new NoSleep(),
+    toggleEl = document.querySelector( "#toggle" ),
+    wakeLockEnabled = false;
+
+  svg.viewBox.baseVal.width  = svg_size;
+  svg.viewBox.baseVal.height = svg_size;
+  rect.width.baseVal.value   = svg_size;
+  rect.height.baseVal.value  = svg_size;
+
+  toggleEl.addEventListener( 'click', function () {
+    if ( !wakeLockEnabled ) {
+      noSleep.enable(); // keep the screen on!
+      wakeLockEnabled                = true;
+      toggleEl.textContent           = "Screen will be awake: click to sleep";
+      toggleEl.style.backgroundColor = "lightgreen";
+    } else {
+      noSleep.disable(); // let the screen turn off.
+      wakeLockEnabled                = false;
+      toggleEl.textContent           = "Screen will sleep: click to wake";
+      toggleEl.style.backgroundColor = "lightcoral";
+    }
+  }, false );
+
+  function step( timestamp ) {
+    var
+      a = timestamp / 1000 * speed;
+    pattern.x.baseVal.value = radius * Math.sin( a );
+    pattern.y.baseVal.value = radius * Math.cos( a );
+    window.requestAnimationFrame( step );
+  }
+
+  window.requestAnimationFrame( step );
+
+</script>
+</html>
