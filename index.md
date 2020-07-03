@@ -3,6 +3,8 @@
 1. Click [here](https://alrashedf.github.io/WideAwake/movemouse.html) to start the webpage then 
 
 2. place your (red LED) mouse on top of the screen. (other types of mice (laser) not tested.)
+
+3. Mouse should jitter and screen should stay awake. Click the red button to keep your smartphone awake too. Be sure to place the phone on a charger. 
 ![Mouse on Screen](https://alrashedf.github.io/WideAwake/mouseonscreen.jpg)
 
 [WideAwake Github repo](https://github.com/alrashedf/WideAwake/)
