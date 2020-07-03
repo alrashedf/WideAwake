@@ -1,6 +1,6 @@
 ## Welcome to WideAwake: the 'physical' mouse jitter webpage
 
-Click [here](https://alrashedf.github.io/WideAwake/movemouse.html) to start the webpage then place your (red LED) mouse on top of the page.
+Click [here](https://alrashedf.github.io/WideAwake/movemouse.html) to start the webpage then place your (red LED) mouse on top of smartphone screen.
 
 [WideAwake Github repo](https://github.com/alrashedf/WideAwake/)
 
