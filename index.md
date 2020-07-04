@@ -1,6 +1,6 @@
 ## Welcome to WideAwake: the 'physical' mouse jitter webpage
 
-WideAwake is a webpage designed for smartphones. The webpage generates patterns on the screen designed to fool the mouse sensor (red LED sensors at least) that the mouse is moving. By placing the mouse on top of the screen displaying the webpage, the mouse pointer will gitter after a few seconds (sometimes a minute).
+WideAwake is a [webpage](https://alrashedf.github.io/WideAwake/movemouse.html) designed for smartphones. The webpage generates patterns on the screen designed to fool the mouse sensor (red LED sensors at least) that the mouse is moving. By placing the mouse on top of the screen displaying the webpage, the mouse pointer will gitter after a few seconds (sometimes it takes a full minute to see the effects).
 
 ![Mouse on Screen](https://alrashedf.github.io/WideAwake/mouseonscreen.jpg)
 
