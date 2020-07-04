@@ -13,4 +13,7 @@ WideAwake is a [webpage](https://alrashedf.github.io/WideAwake/movemouse.html) d
 
 [WideAwake Github repo](https://github.com/alrashedf/WideAwake/)
 
+### To Do (To Explore)
+- Can we make the mouse cursor move in circles? Maybe move the cursor to trace letters "in the air".
+
 **DISCLAMER: There is no guarantee that anything on this page is safe or will work for your devices. USE AT YOUR OWN RISK.**
